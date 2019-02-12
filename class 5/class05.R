@@ -1,4 +1,8 @@
-
+#'---
+#'title: "Class05"
+#'author: John Lee
+#'date: January 22, 2019
+#'output: github_document
 # Class 5
 
 weight <- read.table("bimm143_05_rstats/bimm143_05_rstats/weight_chart.txt", header = TRUE)
