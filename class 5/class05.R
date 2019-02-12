@@ -3,7 +3,6 @@
 #'author: John Lee
 #'date: January 22, 2019
 #'output: github_document
-# Class 5
 
 weight <- read.table("bimm143_05_rstats/bimm143_05_rstats/weight_chart.txt", header = TRUE)
 plot(weight, typ = "o", pch = 15, cex = 2, col =c("blue", "red"), lwd = 2, ylim=c(2,10), xlab = "Age (months)", ylab = "Weight (kg)", main = "Baby Weight")
