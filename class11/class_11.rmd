@@ -1,0 +1,27 @@
+---
+title: "Class 11 Hands On -- Structural Bioinformatics"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Section 1: The PDB
+```{r}
+pdb_stats <-read.csv("Data Export Summary.csv", row.names  = 1)
+pdb_stats
+percent.by.method <- pdb_stats$Total/sum(pdb_stats$Total) * 100
+names(percent.by.method) <- rownames(pdb_stats)
+percent.by.method
+protein.percent <- print(sum(pdb_stats[,"Proteins"])/ sum(pdb_stats[,"Total"]) * 100)
+
+```
+
+# Q1: From the website what proportion of structures are protein? Aim to have a rendered GitHub document with working code that yields your answers. 92.76%. 
+
+# Q2: Type HIV in the PDB website search box on the home page and determine how many HIV-1 protease structures are in the current PDB? 1138
+
+
+## HIV PDB
+
