@@ -25,3 +25,37 @@ protein.percent <- print(sum(pdb_stats[,"Proteins"])/ sum(pdb_stats[,"Total"]) *
 
 ## HIV PDB
 
+```{r}
+pdb <- read.pdb("1hsg")
+print(pdb)
+```
+
+
+#Q6. How many amino acid residues are there in this pdb object and what are the two nonprotein residues? 198 AA residues, 128 non-protein residues
+
+
+```{r}
+pdb$atom
+```
+
+
+## Atom Selection
+
+```{r}
+ca.inds <- atom.select(pdb, "calpha")
+
+```
+## Protein/Ligand Selection
+```{r}
+prot.inds <- atom.select(pdb, string = "protein")
+prot.inds
+lig.inds <- atom.select(pdb, string = "ligand")
+lig.inds
+```
+
+```{r}
+prot.pdb <- trim.pdb(pdb, prot.inds)
+write.pdb(prot.pdb, file= "protein.pdb")
+
+```
+
