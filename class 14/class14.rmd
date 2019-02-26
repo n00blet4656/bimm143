@@ -1,0 +1,48 @@
+---
+title: "class_14"
+author: "John Lee"
+date: "February 21, 2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Asthma SNP's in MXL Population
+# Reading Ensemble File
+```{r}
+mxl <- read.csv("373531-SampleGenotypes-Homo_sapiens_Variation_Sample_rs8067378.csv")
+head(mxl)
+```
+
+# Counting the Different Phenotypes
+```{r}
+table(mxl$Genotype..forward.strand.)
+```
+
+## RNA Seq FASTQ Quality Scores
+
+```{r}
+q <- "DDDDCDEDCDDDDBBDDDCC@"
+library(seqinr)
+library(gtools)
+
+asc( s2c(q)) - 33
+```
+
+
+## Section4 
+
+# Does the genotype for rs8067378 influence expression of the important asthma linked genes we found?
+```{r}
+expr <- read.table("rs8067378_ENSG00000172057.6.txt")
+```
+
+
+```{r}
+summary( expr[expr[,2] == "A/A",3] )
+
+```
+
