@@ -1,0 +1,67 @@
+---
+title: "class 13.rmd"
+author: "John Lee"
+date: "February 19, 2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(bio3d)
+hsg.file <- get.pdb("1HSG")
+hiv <- read.pdb(hsg.file)
+```
+
+```{r}
+hiv
+# Q1: HOH and MK1. The resid values corrsepond to how many of those residues exist in the structure.
+```
+
+## Prepare Initial Protein and Ligand Input Files
+```{r}
+prot <- trim.pdb(hiv, "protein")
+lig <- trim.pdb(hiv, "ligand")
+write.pdb(prot, file = "1hsg_protein.pdb")
+write.pdb(lig, file = "1hsg_ligand.pdb")
+
+```
+
+# Q2:
+
+## Part 5: Prepare a Docking Config File
+
+
+
+## Section 2
+```{r}
+res <- read.pdb("all.pdbqt", multi = TRUE)
+write.pdb(res, "results.pdb")
+```
+
+
+# RMSD
+```{r}
+ori <- read.pdb("ligand.pdbqt")
+rmsd(ori, res)
+```
+
+# frame 1 is the best fit to the crystal structure
+# Q5: quantitatively, only one of the docks is within 1 angstrom
+
+
+
+## Normal Mode Analysis
+```{r}
+pdb <- read.pdb("1HEL")
+
+modes <- nma(pdb)
+plot(modes)
+```
+
+```{r}
+mktrj(modes, mode = 7, file = "nma_7.pdb")
+```
+
