@@ -1,0 +1,32 @@
+---
+title: "Find a Gene"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(bio3d)
+
+```
+
+```{r}
+muscle <- read.fasta("muscle alignment.fasta")
+```
+
+
+```{r}
+seqmatrix <- seqidentity(muscle)
+seqmatrix
+heatmap(seqmatrix, cexRow = 0.7, cexCol = 0.7)
+```
+
+
+
+```{r}
+
+blast.pdb("5F6Z_A")
+```
+
